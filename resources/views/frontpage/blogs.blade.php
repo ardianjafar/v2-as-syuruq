@@ -54,7 +54,7 @@
                             <div class="col-auto align-self-center">
                                 <a href="#" class="btn btn-sm btn-outline-primary" id="Dash_Date">
                                     <span class="day-name" id="Day_Name">Today:</span>&nbsp;
-                                    <span class="" id="Select_date">Maret 3/26/2023</span>
+                                    <span class="" id="Select_date">{{ date('d/m/y H:i') }}</span>
                                     <i data-feather="calendar" class="align-self-center icon-xs ml-1"></i>
                                 </a>
                             </div><!--end col-->
@@ -94,7 +94,7 @@
                                             </div>
                                         </div><!--end meta-box-->
                                         <div class="align-self-center">
-                                            <a href="{{ route('detailBlogs', $posts[0]->slug) }}" class="text-dark">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                                            <a href="{{ route('detailBlogs', $post->slug) }}" class="text-dark">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
                                         </div>
                                     </div>
                                 </div><!--end blog-card-->

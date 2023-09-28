@@ -31,10 +31,9 @@
 @yield('content')
 <!-- End Content -->
 
-
-<footer class="footer text-center text-sm-left mt-5">
-    &copy; 2023 As-Syuruq Media Team <span class="d-none d-sm-inline-block "> | Crafted with <i
-                class="mdi mdi-heart text-danger"></i> by <a href="https://instagram.com/ardianjafar_46">ardianjafar</a>  </span>
+<footer class="footer text-center text-sm-left">
+    Official As-Syuruqtv &copy; 2023 | <a href="https://wa.me/6285816169312"><i class="fab fa-whatsapp"> WhatsApp Kami</i></a>. <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by <a
+            href="https://github.com/ardianjafar">ardianjafar</a></span>
 </footer>
 <!-- jQuery  -->
 <script src="{{ asset('dastone/assets/js/jquery.min.js') }}"></script>

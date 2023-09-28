@@ -32,7 +32,7 @@
             </li>
 
             <li>
-                <a href="javascript: void(0);"><i data-feather="lock" class="align-self-center menu-icon"></i><span>Contact Form</span><span class="menu-arrow"></span></a>
+                <a href="{{ route('ctform.index') }}"><i data-feather="lock" class="align-self-center menu-icon"></i><span>Contact Form</span><span class="menu-arrow"></span></a>
 
             </li>
             @can('manage_roles')

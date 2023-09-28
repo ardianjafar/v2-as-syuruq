@@ -30,7 +30,7 @@
                 <div class="dropdown-divider mb-0"></div>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <a class="dropdown-item" href="{{ route('logout') }}"><i data-feather="power" class="align-self-center icon-xs icon-dual mr-1"></i> Logout</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"><i data-feather="power" class="align-self-center icon-xs icon-dual mr-1"></i> Logouts</a>
                 </form>
             </div>
         </li>

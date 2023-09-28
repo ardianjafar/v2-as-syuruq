@@ -8,6 +8,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 mt-5">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success border-0 mt-5" role="alert">
+                        {{ session('success') }}
+                    </div>
+                   @endif
                     <div class="row mt-5">
                         <div class="col-lg-6 text-center">
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -41,7 +46,7 @@
                                     Media Islami Ahlussunnah Waljamaah, Dengan menyediakan konten Islami untuk ummat,
                                     dengan ilmu agama yang bersambung sanadnya.
                                 </p>
-                                <button type="button" class="btn btn-outline-primary">Tentang Kami</button>
+                                <a href="#about" class="btn btn-outline-primary">Tentang Kami</a>
                             </div>
                         </div><!--end col-->
 
@@ -67,12 +72,12 @@
                             </div>
                             <div class="col-md-6 mt-1 p-2">
                                 <p class="lead"><span class="font-16">As Syuruq Media</span> digagas oleh <span
-                                            class="font-weight-bold">Gus Muhammad Ibrahim Arofi Himzi, Bsc., M.H</span>
+                                            class="font-weight-bold">Gus Muhammad Ibrahim Arofi Himzi, BSc., M.H</span>
                                     pada tahun 2019. Pada awal berdiri beliau menamainya Ngaos Nade kemudian setelah
                                     beliau melakukan istiqoroh dan digantikan dengan nama As Syuruq yang dibangun dan
-                                    dikembangkan secara formal pada 10 Agustus 2019 (09 Dzulhijjah 1440 H).</p>
+                                    dikembangkan secara formal pada 08 Desember 2019 (11 Rabiul Akhir 1441H).</p>
                                 <p class="lead">Latar belakang berdirinya As Syuruq Media karena ingin menyebarkan
-                                    kajian Gus Muhammad Ibrahim Arofi Himzi, Bsc., M.H,.Namun lambat laun semakin
+                                    kajian Gus Muhammad Ibrahim Arofi Himzi, BSc., M.H,.Namun lambat laun semakin
                                     berkembang dengan menyebarkan kajian kontemporer islam masa kini, sekaligus sebagai
                                     wadah untuk para pemuda dalam belajar berdakwah melalui media sosial.</p>
                                 <p class="lead">Maksud dari di berinya nama As Syuruq ini mempunyai arti Syuruq
@@ -89,7 +94,7 @@
         <!-- End About -->
 
         <!-- Start Sosial Media -->
-        <div class="row mt-5 mb-5" id="#contact-us">
+        <div class="row mt-5 mb-5" id="contact-us">
             <div class="col-10 mx-auto">
                 <div class="">
                     <h1 class="">Kunjungi sosial media kami</h1>
@@ -105,7 +110,7 @@
                                     <span class="text-white text-center rib1-danger">Yt</span>
                                 </div>
                                 <p class="card-text">Menyajikan kontent dakwah yang di kemas dari kajian umum yang di
-                                    selenggarakan offline.</p>
+                                    selenggarakan offline ataupun online, kunjungi kami dan bantu dukung dengan subscribe.</p>
                                 <a class="btn btn-outline-danger popup-youtube"
                                    href="https://www.youtube.com/@assyuruqtv">Open YouTube</a>
                             </div><!--end card-body-->
@@ -120,8 +125,7 @@
                                 <div class="ribbon1 rib1-dark">
                                     <span class="text-white text-center rib1-dark">Tk</span>
                                 </div>
-                                <p class="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Menyajikan konten seputar rekaman dakwah yang berlangsung ataupun kajian dakwah dengan pembahasan kitab-kitab salafi.</p>
                                 <a class="btn btn-outline-dark popup-youtube"
                                    href="https://www.tiktok.com/@assyuruqtv">Open YouTube</a>
                             </div><!--end card-body-->
@@ -136,10 +140,9 @@
                                 <div class="ribbon1 rib1-success">
                                     <span class="text-white text-center rib1-success">Os</span>
                                 </div>
-                                <p class="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Menyajikan record seputar dakwah kajian baik offline ataupun online dan juga lantunan sholawat nabi.</p>
                                 <a class="btn btn-outline-success popup-youtube"
-                                   href="https://open.spotify.com/show/0jt3O7QdizgrXAXpSVqPO4">Open YouTube</a>
+                                   href="https://open.spotify.com/show/0jt3O7QdizgrXAXpSVqPO4">Open Spotify</a>
                             </div><!--end card-body-->
                         </div><!--end card-->
                     </div>
@@ -152,10 +155,9 @@
                                 <div class="ribbon1 rib1-primary">
                                     <span class="text-white text-center rib1-primary">Tm</span>
                                 </div>
-                                <p class="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Ikuti akun Official Telegram kami terkait dengan kajian dakwah yang terbaru dan pembahasan seputar kitab-kitab salafi.</p>
                                 <a class="btn btn-outline-primary popup-youtube"
-                                   href="http://www.youtube.com/watch?v=0O2aH4XLbto">Open YouTube</a>
+                                   href="https://t.me/assyuruqtv">Open Telegram</a>
                             </div><!--end card-body-->
                         </div><!--end card-->
                     </div>
@@ -175,9 +177,9 @@
                             <div class="card-body">
                                 <div class="blog-card">
                                     @if($post->thumbnail)
-                                        <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->slug  }} }}" class="img-fluid rounded"/>
+                                        <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->slug  }}" class="img-fluid rounded"/>
                                     @else
-                                        <img src="https://source.unsplash.com/1200x400?{{ $post->slug }}" alt="{{ $post->slug  }} }}" class="img-fluid rounded"/>
+                                        <img src="https://source.unsplash.com/1200x400?{{ $post->slug }}" alt="{{ $post->slug  }}" class="img-fluid rounded"/>
                                     @endif
                                     <span class="badge badge-purple px-3 py-2 bg-soft-primary font-weight-semibold mt-3">Categories</span>
                                     <h4 class="my-3">
@@ -223,9 +225,8 @@
                 <div class="row">
                     <div class="col-12 p-2">
                         <h1 class="font-weight-bold">GALLERY | <span class="text-primary"> AS-SYURUQ</span></h1>
-                        <P class="text-muted">- Pengambilan gambar dilakukan pada saat kajian berlangsung Lorem ipsum
-                            dolor sit, <br> amet consectetur adipisicing elit. Ut quo saepe id pariatur nam <br>
-                            voluptatem blanditiis dolore culpa neque accusantium.</P>
+                        <P class="text-muted">- Pengambilan gambar dilakukan pada saat kajian berlangsung , <br> Hubungi kami untuk info lebih lanjut terkait dengan kajian atau<br>
+                             izin gambar untuk di publish ke media digital yang lain</P>
                         <div class="row p-2">
                             <div class="col-md-4 mt-2 mb-3">
                                 <img src="{{ asset('dastone/assets/images/frontpage/6.jpg') }}" class="d-block w-100"
@@ -259,14 +260,14 @@
         <!-- End Gallery -->
 
         <!-- Start Input Form -->
-        <div class="container-fluid p-3 bg-light">
+        <div class="container-fluid p-3  mb-5">
             <div class="row">
                 <div class="col-lg-6 mx-auto">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Contact Us</h4>
-                            <p class="text-muted mb-0">Don't Worry ! Email us your Questions or you can send us
-                                twitter.</p>
+                            <p class="text-muted mb-0">
+                                Isi dan berikan ulasan tentang website kami atau kontak info lebih lanjut!</p>
                         </div><!--end card-header-->
                         <div class="card-body">
                             <div class="row">

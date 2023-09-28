@@ -10,6 +10,17 @@
         {{ config('app.name') }} | @yield('title')
     </title>
     <link rel="stylesheet" href="{{ asset('vendor/my-auth/css/auth.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body{
+            padding:100px 0;
+            background-color:#efefef
+        }
+        a, a:hover{
+            color:#333
+        }
+    </style>
 </head>
 
 <body class="bg-primary">
@@ -39,8 +50,10 @@
     </div>
 </div>
 <script src="{{ asset('vendor/jquery/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('vendor/my-auth/js/auth.css') }}"></script>
+<script src="{{ asset('vendor/bootstrap-5/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('vendor/my-auth/js/auth.js') }}"></script>
+@stack('javascript-internal')
+
 </body>
 
 </html>

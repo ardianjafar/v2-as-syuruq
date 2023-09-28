@@ -9,44 +9,72 @@
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Slug</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($tags as $tag)
+                    @foreach($contactForm as $contact)
                         <tr>
                             <td>
-                                <img src="assets/images/products/img-1.png" alt="" height="40">
-                                <p class="d-inline-block align-middle mb-0">
-                                    <a href="" class="d-inline-block align-middle mb-0 product-name">{{ $tag->title }}</a>
-                                    <br>
-                                    <span class="text-muted font-13">{{ $tag->created_at->diffForHumans() }}</span>
-                                </p>
+                                {{ $contact->name }}
                             </td>
-                            <td>{{ $tag->slug }}</td>
+                            <td>{{ $contact->email }}</td>
                             <td>
-                                <a href="{{ route('tags.edit', ['tag' => $tag]) }}" class="mr-2"><i class="las la-pen text-info font-18"></i></a>
-                                <form class="d-inline" action="{{ route('tags.destroy', ['tag' => $tag]) }}" role="alert" method="POST">
+                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#Test{{$contact->id}}">
+                                    <i data-feather="eye"></i>
+                                </button>
+                                <form class="d-inline" action="{{ route('ctform.destroy', ['id' => $contact->id]) }}" role="alert" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="show_confirm">
-                                        <i class="las la-trash-alt text-danger font-18"></i>
+                                        <i data-feather="trash" class="text-danger font-18"></i>
                                     </button>
                                 </form>
                             </td>
                         </tr>
+
+                        <div class="modal fade" id="Test{{$contact->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalDefaultLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title m-0" id="exampleModalDefaultLabel">Messages</h6>
+                                        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true"><i class="la la-times"></i></span>
+                                        </button>
+                                    </div><!--end modal-header-->
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <h5>From : {{ $contact->name }}</h5>
+                                                <h5>Email : {{ $contact->email }}</h5>
+                                                <span class="badge bg-soft-secondary">Created : {{ $contact->created_at->diffForHumans()}}</span>
+                                                    <li>{{ $contact->message }}</li>
+                                                </ul>
+                                            </div><!--end col-->
+                                        </div><!--end row-->
+                                    </div><!--end modal-body-->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                    </div><!--end modal-footer-->
+                                </div><!--end modal-content-->
+                            </div><!--end modal-dialog-->
+                        </div>
                     @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+
 @endsection
 
 
 @push('javascript-internal')
+
+
     {{--    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js')}}"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script type="text/javascript">

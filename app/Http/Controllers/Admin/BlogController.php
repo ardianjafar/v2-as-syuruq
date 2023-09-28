@@ -39,12 +39,14 @@ class BlogController extends Controller
         $time = Carbon::now();
 
         $posts = Post::publish()->with(['categories','tags'])->where('slug', $slug)->first();
+        $relatedPosts = Post::publish()->paginate(2);
         if(!$posts){
             return redirect()->route('blog.home');
         }
         return view('frontpage.detail_blog',[
             'posts'  => $posts,
-            'time' => Carbon::now()
+            'time' => Carbon::now(),
+            'relatedPosts' => $relatedPosts
         ]);
     }
 

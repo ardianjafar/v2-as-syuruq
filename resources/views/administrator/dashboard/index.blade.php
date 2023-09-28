@@ -10,12 +10,12 @@
                 Posts
             </div>
             <div class="card-body">
-{{--                @role('Editor')--}}
+                @role('Editor')
                 <h5 class="card-title">{{ $post }} Post</h5>
-{{--                @else--}}
+                @else
                     <h5 class="card-title">{{ $post }} Post</h5>
                     <a href="{{ route('posts.index') }}" class="btn btn-primary btn-sm rightButton">View</a>
-{{--                @endrole--}}
+                @endrole
             </div>
         </div>
     </div>
@@ -25,12 +25,12 @@
                 Tags
             </div>
             <div class="card-body">
-{{--                @role('Editor')--}}
+                @role('Editor')
                 <h5 class="card-title">{{ $tag }} Tags</h5>
-{{--                @else--}}
+                @else
                     <h5 class="card-title">{{ $tag }} Tags</h5>
                     <a href="{{ route('tags.index') }}" class="btn btn-primary btn-sm">View</a>
-{{--                    @endrole--}}
+                @endrole
             </div>
         </div>
     </div>
@@ -40,12 +40,12 @@
                 Categories
             </div>
             <div class="card-body">
-{{--                @role('Editor')--}}
+                @role('Editor')
                 <h5 class="card-title">{{ $category }} Categories</h5>
-{{--                @else--}}
+                @else
                     <h5 class="card-title">{{ $category }} Categories</h5>
                     <a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">View</a>
-{{--                    @endrole--}}
+                @endrole
             </div>
         </div>
     </div>
@@ -55,12 +55,12 @@
                 Users
             </div>
             <div class="card-body">
-{{--                @role('Editor')--}}
+                @role('Editor')
                 <h5 class="card-title">{{ $users }} Users</h5>
-{{--                @else--}}
+                @else
                     <h5 class="card-title">{{ $users }} Users</h5>
                     <a href="{{ route('users.index') }}" class="btn btn-primary btn-sm">View</a>
-{{--                    @endrole--}}
+                @endrole
 
             </div>
         </div>
@@ -82,7 +82,6 @@
                     </thead>
                     @foreach ($posts as $item)
                         <tbody>
-                        {{-- {{ dd($posts) }} --}}
                         <td>{{ $loop->iteration }}</td>
                         <td>
                             {{ $item->title }}

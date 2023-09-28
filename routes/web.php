@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\{BlogController,DashboardController, PostController, TagController, CategoryController, UserController, FileManagerController, RoleController,ContactFormController};
 
 Route::get('/', [BlogController::class, 'home'])->name('home');
@@ -37,9 +38,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web','auth']], functio
     /*
     Contact Form -> Read, Delete
     */
-    Route::get('/ctform', [CtFormController::class,'index'])->name('ctform.index');
-    Route::get('/ctform/{id}', [CtFormController::class,'show'])->name('ctform.show');
-    Route::delete('/ctform/{id}', [CtFormController::class,'destroy'])->name('ctform.destroy');
+    Route::get('/contact-form', [ContactFormController::class,'index'])->name('ctform.index');
+    Route::get('/contact-form/{id}', [ContactFormController::class,'show'])->name('ctform.show');
+    Route::delete('/contact-form/{id}', [ContactFormController::class,'destroy'])->name('ctform.destroy');
 
     /*
         Posts -> CRUD
@@ -63,5 +64,8 @@ Route::group(['prefix' => '/dashboard', 'middleware' => ['web','auth']], functio
         User Permission
     */
     Route::resource('/users', UserController::class)->except('show');
+
+    // Logout
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
